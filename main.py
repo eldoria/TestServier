@@ -1,21 +1,23 @@
 import sys
+import os
 from SparseArray import SparseArray
 
-strings = ["ab", "abcd", "bc", "ab"]
-queries = ["ab", "bd", "abcd"]
+# strings = 'ab,abcd,bc,ab'
+# queries = 'ab,bd,abcd'
 
 
 def main():
     if len(sys.argv) == 1:
-        print(SparseArray.matching_strings(strings, queries))
+        print(SparseArray.matching_strings(split(os.environ['STRINGS']), split(os.environ['QUERIES'])))
+        print(os.environ['STRINGS'])
     elif len(sys.argv) == 2:
-        print(SparseArray.matching_strings(strings, get_args(1)))
+        print(SparseArray.matching_strings(strings, split(sys.argv[1])))
     elif len(sys.argv) == 3:
-        print(SparseArray.matching_strings(get_args(1), get_args(2)))
+        print(SparseArray.matching_strings(split(sys.argv[1]), split(sys.argv[2])))
 
 
-def get_args(index):
-    return sys.argv[index].split(',')
+def split(string):
+    return string.split(',')
 
 
 if __name__ == '__main__':

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47e141c2-dedc-4d15-9c9d-e899b59f9a37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SparseArray.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -44,7 +43,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595333647504</updated>
-      <workItem from="1595333649978" duration="11330000" />
+      <workItem from="1595333649978" duration="11938000" />
+      <workItem from="1595413918491" duration="2567000" />
+      <workItem from="1595428384347" duration="609000" />
+      <workItem from="1595430095208" duration="179000" />
+      <workItem from="1595430283929" duration="242000" />
+      <workItem from="1595430536894" duration="1735000" />
     </task>
     <servers />
   </component>
@@ -52,9 +56,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1595333661761">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1595432293981">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1595333661761" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1595432293981" />
   </component>
 </project>
