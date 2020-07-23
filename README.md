@@ -42,12 +42,8 @@ This file allow the possiblity to create a python image
 ############################## DOCKER ##############################
 
 -> how to run the program with docker ?
-"docker run -t test_mdm" allow you to launch the program
-Then you need to type : "python main.py", environment variables will be used
+"docker run -t test_mdm ab,abc,bc" allow you to launch the program with "ab", "abc" and "bc" as queries.
 On the same way, you can provide 0,1 or 2 arguments depending of what you want
 
--> If you don't have image&docker
+-> If you don't have image
 "docker build . -t test_mdm" create an image of python 3.7 named test_mdm
-Then you need to create a container based on the image test_mdm
-"docker run -tid --name containerpython --env STRINGS="ab,abcd,bc,ab" --env QUERIES="ab,bd,abcd" test_mdm"
-Environment variables are passed into the container named : containerpython

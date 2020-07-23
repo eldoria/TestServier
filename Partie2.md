@@ -10,8 +10,7 @@ GROUP BY date ASC
 
 SELECT client_id, SUM(prod_price * prod_qty) AS ventes_meuble
 FROM transactions AS tab1
-INNER JOIN products_nomenclateures AS tab2
-ON tab1.prod_id = tab2.prod_id
+INNER JOIN products_nomenclatures AS tab2 ON tab1.prod_id = tab2.prod_id
 WHERE tab2.product_type = "MEUBLE"
 GROUP BY client_id
 
@@ -19,7 +18,6 @@ UNION
 
 SELECT client_id, SUM(prod_price * prod_qty) AS ventes_deco
 FROM transactions AS tab1
-INNER JOIN products_nomenclateures AS tab2
-ON tab1.prod_id = tab2.prod_id
+INNER JOIN products_nomenclatures AS tab2 ON tab1.prod_id = tab2.prod_id
 WHERE tab2.product_type = "DECO"
 GROUP BY client_id
