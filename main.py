@@ -11,7 +11,7 @@ def main():
         print(SparseArray.matching_strings(split(os.environ['STRINGS']), split(os.environ['QUERIES'])))
         print(os.environ['STRINGS'])
     elif len(sys.argv) == 2:
-        print(SparseArray.matching_strings(strings, split(sys.argv[1])))
+        print(SparseArray.matching_strings(split(os.environ['STRINGS']), split(sys.argv[1])))
     elif len(sys.argv) == 3:
         print(SparseArray.matching_strings(split(sys.argv[1]), split(sys.argv[2])))
 
