@@ -46,7 +46,7 @@ This file allow the possiblity to create a python image
 Then you need to type : "python main.py", environment variables will be used
 On the same way, you can provide 0,1 or 2 arguments depending of what you want
 
--> If there is a problem with image&docker
+-> If you don't have image&docker
 "docker build . -t test_mdm" create an image of python 3.7 named test_mdm
 Then you need to create a container based on the image test_mdm
 "docker run -tid --name containerpython --env STRINGS="ab,abcd,bc,ab" --env QUERIES="ab,bd,abcd" test_mdm"
