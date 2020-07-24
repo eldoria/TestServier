@@ -16,12 +16,13 @@ def matching_strings(strings, queries):
 
     return nb_occurrence
 
+
 # Data to serve with our API
 DICT = {
     "ab,bd": {
         "strings": "ab,bc,cd",
         "queries": "ab,bd",
-        "nb_occurrence": matching_strings("ab,bc,cd", "ab,bc"),
+        "nb_occurrence": matching_strings("ab,bc,cd", "ab,bd"),
     },
     "ab,bc,cd": {
         "strings": "ab,ab,cd,bc,cd",
@@ -38,19 +39,15 @@ def read_all():
 
 def read_one(queries):
 
-    for queries2 in DICT:
-        queries3 = '"' + queries2 + '"'
-        if queries == queries3:
-            dictionary = DICT[queries2]
-            return dictionary
-
-
+    if queries in DICT:
+        dict = DICT.get(queries)
 
     # otherwise, nope, not found
     else:
         abort(
             404, "Dictionary with query {queries} not found".format(queries=queries)
         )
+    return dict
 
 
 def create(dictionary):
@@ -76,13 +73,15 @@ def create(dictionary):
 
 
 def update(queries, dictionary):
-    for queries2 in DICT:
-        queries3 = '"' + queries2 + '"'
-        if queries == queries3:
-            delete(queries)
-            create(dictionary)
 
-            return read_one(dictionary.get("queries"))
+    if queries in DICT:
+
+        strings = dictionary.get("strings")
+
+        DICT[queries]["strings"] = strings
+        DICT[queries]["nb_occurrence"] = matching_strings(strings, queries)
+
+        return DICT[queries]
 
     # otherwise, nope, that's an error
     else:
@@ -92,13 +91,11 @@ def update(queries, dictionary):
 
 
 def delete(queries):
-    for queries2 in DICT:
-        queries3 = '"' + queries2 + '"'
-        if queries == queries3:
-            del DICT[queries2]
-            return make_response(
-                "{queries} successfully deleted".format(queries=queries2), 200
-            )
+    if queries in DICT:
+        del DICT[queries]
+        return make_response(
+            "{queries} successfully deleted".format(queries=queries), 200
+        )
 
     else:
         abort(

@@ -13,7 +13,7 @@ basePath: /api
 
 # Paths supported by the server application
 paths:
-  /DICT:
+  /dict:
     get:
       operationId: dict.read_all
       tags:
@@ -64,12 +64,12 @@ paths:
                 description: strings to create
               queries:
                 type: string
-                description: queries to create
+                description: query to create
       responses:
         201:
           description: Successfully created query in dictionary
 
-  /DICT/{queries}:
+  /dict/{queries}:
     get:
       operationId: dict.read_one
       tags:
