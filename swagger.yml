@@ -1,0 +1,135 @@
+  
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger ReST Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /DICT:
+    get:
+      operationId: dict.read_all
+      tags:
+        - Dict
+      summary: Read the entire list of queries
+      description: Read the list of queries
+      parameters:
+        - name: length
+          in: query
+          type: integer
+          description: Number of queries to get from the dictionnary
+          required: false
+        - name: offset
+          in: query
+          type: integer
+          description: Offset from beginning of list where to start gathering queries
+          required: false
+      responses:
+        200:
+          description: Successfully read queries list operation
+          schema:
+            type: array
+            items:
+              properties:
+                strings:
+                  type: string
+                queries:
+                  type: string
+                nb_occurrence:
+                  type: string
+
+    post:
+      operationId: dict.create
+      tags:
+        - Dict
+      summary: Create a query and add it to the dictionnary
+      description: Create a new query in the dictionnary
+      parameters:
+        - name: dictionary
+          in: body
+          description: query to create
+          required: True
+          schema:
+            type: object
+            properties:
+              strings:
+                type: string
+                description: strings to create
+              queries:
+                type: string
+                description: queries to create
+      responses:
+        201:
+          description: Successfully created query in dictionary
+
+  /DICT/{queries}:
+    get:
+      operationId: dict.read_one
+      tags:
+        - Dict
+      summary: Read one query from the dictionary
+      description: Read one query from the dictionary
+      parameters:
+        - name: queries
+          in: path
+          description: query from the dictionary
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read query from the dictionary
+          schema:
+            properties:
+              strings:
+                type: string
+              queries:
+                type: string
+              nb_occurrence:
+                type: string
+
+    put:
+      operationId: dict.update
+      tags:
+        - Dict
+      summary: Update a query in the dictionary
+      description: Update a query in the dictionary
+      parameters:
+        - name: queries
+          in: path
+          description: query to update from the dictionary
+          type: string
+          required: True
+        - name: dictionary
+          in: body
+          schema:
+            type: object
+            properties:
+              strings:
+                type: string
+              queries:
+                type: string
+      responses:
+        200:
+          description: Successfully updated query in the dictionary
+
+    delete:
+      operationId: dict.delete
+      tags:
+        - Dict
+      summary: Delete a query from the dictionary
+      description: Delete a query
+      parameters:
+        - name: queries
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully deleted a query from the dictionary
