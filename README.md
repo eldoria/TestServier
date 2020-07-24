@@ -47,3 +47,16 @@ On the same way, you can provide 0,1 or 2 arguments depending of what you want
 
 -> If you don't have image
 "docker build . -t test_mdm" create an image of python 3.7 named test_mdm
+
+############################## FLASK + SWAGGER ##############################
+
+-> how to use this ?
+"python server.js" launch the server, then you need to go on your navigator and type : 127.0.0.1:5000/api/ui
+
+You have different options :
+
+-> GET (/dict) return all the queries of the dictionary
+-> POST create a new query and add it to the dictionary
+-> DELETE, delete the query typed
+-> GET(/dict{queries}) return the query typed
+-> PUT modify the value "strings" of the query typed

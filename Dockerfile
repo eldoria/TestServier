@@ -1,9 +1,12 @@
 FROM python:3.7
 
-ADD main.py /
-ADD SparseArray.py /
+ADD server.py /
+ADD dict.py /
+ADD swagger.yml /
 
-ENV STRINGS "ab,abcd,bc,ab"
-ENV QUERIES "ab,bd,abcd"
+RUN pip install flask
+RUN pip install flask_restful
+RUN pip install connexion
+RUN pip install connexion[swagger-ui]
 
-ENTRYPOINT ["python", "./main.py"]
+CMD ["python", "server.py", "--host", "0.0.0.0"]
